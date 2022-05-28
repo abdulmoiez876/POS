@@ -1,15 +1,23 @@
 import React from 'react'
 import classes from './Item.module.css'
+import { useDispatch} from 'react-redux'
+import { cartActions } from '../../../store/cart-slice'
 
 const Item = (props) => {
+  const dispatch = useDispatch();
+  const {title , price ,src , id} = props;
   const clickHandler = () => {
     if(props.cat) {
       props.itemsToBeDisplayed(props.details);
       props.onClick();
     }
     else {
-      console.log('item');
-      console.log(props.title);
+      dispatch(cartActions.addItemToCart({
+        id:id,
+        title:title,
+        price:price,
+        src:src
+      }))
     }
     
   }

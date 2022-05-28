@@ -1,11 +1,17 @@
 import React from 'react'
 import classes from "./CartAction.module.css"
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../../../store/cart-slice';
 
 const CartAction = () => {
+  const dispatch = useDispatch();
+  const emptyCartHandler =()=>{
+    dispatch(cartActions.emptyCart());
+  };
   return (
     <div className={classes.box}>
         <div className={classes.empty}>
-            <button className={classes.emptyCart}>Empty</button>
+            <button className={classes.emptyCart} onClick={emptyCartHandler}>Empty</button>
         </div>
         <div className={classes.btns}>
         <button className={`${classes.btn} ${classes.note}`}>Add Note</button>

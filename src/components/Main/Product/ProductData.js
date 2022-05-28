@@ -14,8 +14,8 @@ const ProductData = [
         cat: true,
         src: smoothie,
         details: [
-            { title: "Strawbery Shake", price: "250", src: sshake, cat: false },
-            { title: "Banana Shake", price: "250", src: bshake, cat: false }
+            { title: "Strawbery Shake", price: "250", src: sshake, cat: false , id:"s1" },
+            { title: "Banana Shake", price: "250", src: bshake, cat: false ,id:"s2"}
         ]
     },
     {
@@ -24,8 +24,8 @@ const ProductData = [
         cat: true,
         src: burger,
         details: [
-            { title: "Beef Burger", price: "550", src: bburger, cat: false },
-            { title: "Zinger Burger", price: "350", src: zburger, cat: false }
+            { title: "Beef Burger", price: "550", src: bburger, cat: false , id:"b1" },
+            { title: "Zinger Burger", price: "350", src: zburger, cat: false , id:"b2"}
         ]
     },
     {
@@ -34,8 +34,8 @@ const ProductData = [
         cat: true,
         src: pizza,
         details: [
-            { title: "Tikka Pizza", price: "999", src: pizza, cat: false },
-            { title: "Fajita Pizza", price: "999", src: pizza, cat: false }
+            { title: "Tikka Pizza", price: "999", src: pizza, cat: false , id:"p1"  },
+            { title: "Fajita Pizza", price: "999", src: pizza, cat: false , id:"p2" }
         ]
     },
     {
@@ -44,8 +44,8 @@ const ProductData = [
         cat: true,
         src: fries,
         details: [
-            { title: "Masala Fries", price: "50", src: fries, cat: false },
-            { title: "Loaded fries", price: "300", src: fries, cat: false }
+            { title: "Masala Fries", price: "50", src: fries, cat: false  , id:"f1" },
+            { title: "Loaded fries", price: "300", src: fries, cat: false  , id:"f2" }
         ]
     },
 ];

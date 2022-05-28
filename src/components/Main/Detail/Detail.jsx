@@ -20,12 +20,11 @@ const Detail = (props) => {
                 price={item.price}
                 cat={item.cat}
                 key={item.title}
+                id={item.id}
               />
             )
           })
         }
-        {/* <Item src={smoothie} title="Strawberry Shake" price="250" cat={false}></Item>
-        <Item src={bshake} title="Banana Shake" price="450" cat={false}></Item> */}
       </div>
     </div>
   );

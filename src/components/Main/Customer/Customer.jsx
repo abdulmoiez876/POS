@@ -62,7 +62,7 @@ export default function Customer(props) {
                     </button>
                 </div>
                 <div className={styles.selectedProducts}>
-                    <Cart/>
+                    <Cart></Cart>
                 </div>
             </div>
 

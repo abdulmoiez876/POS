@@ -1,7 +1,7 @@
 import React, { useState , useContext} from "react";
 import classes from "./Location.module.css";
 import { useNavigate } from "react-router-dom";
-import StoreContext from "../../store/store-context";
+import StoreContext from "../../Cstore/store-context";
 
 
 function Location() {
