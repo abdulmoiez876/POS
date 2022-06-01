@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './SearchCustomerProfile.module.css';
 import Modal from '../../Modal/Modal';
 import Input from '../../UI/Input';
 import cross from '../../../assets/crossBlack.png';
 
 export default function SearchCustomerProfile(props) {
+    const [currentCustomer, setCurrentCustomer] = useState('Guest');
+    const [userSearch, setUserSearch] = useState('');
   return (
-    <Modal>
+    <Modal onClose={props.onClose}>
         <div className={`${styles.flexCol} ${styles.container}`}>
             <div className={`${styles.flexRowTop} ${styles.r1Head}`}>
                 <h5>Set Customer's Profile</h5>
@@ -26,8 +28,8 @@ export default function SearchCustomerProfile(props) {
                 <div className={`${styles.flexCol} ${styles.errors}`}>
                 <h6>Current Customer:</h6>
                 <Input
-                  value='Guest'
-                  placeholder='Guest'
+                  value={currentCustomer}
+                //   placeholder='Guest'
                     onChange={(event) => {
                     //   setFName(event.target.value);
                     }}
@@ -39,8 +41,9 @@ export default function SearchCustomerProfile(props) {
             <div className={`${styles.flexCol} ${styles.errors}`}>
                 <h6>Search User:</h6>
                 <Input
+                    value={userSearch}
                     onChange={(event) => {
-                    //   setFName(event.target.value);
+                      setUserSearch(event.target.value);
                     }}
                 />
                 </div>

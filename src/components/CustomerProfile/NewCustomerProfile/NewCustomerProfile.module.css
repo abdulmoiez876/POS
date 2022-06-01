@@ -48,7 +48,8 @@
 .select {
     width: auto;
     height: 40px;
-    border-radius: 5px
+    border-radius: 5px;
+    border: 1px solid rgb(224, 219, 219);
 }
 
 .btn {

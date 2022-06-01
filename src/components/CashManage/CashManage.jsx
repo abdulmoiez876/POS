@@ -3,18 +3,42 @@ import styles from './CashManage.module.css';
 import Modal from '../Modal/Modal';
 import Input from '../UI/Input';
 import cross from '../../assets/crossBlack.png';
-import plus from '../../assets/plus.png';
-import minus from '../../assets/minus.png';
 import leftArrow from '../../assets/leftArrow.png';
+import { useDispatch } from 'react-redux';
+import { registerActions } from '../../store/register-slice';
 
 export default function CashManage(props) {
   const [result, setResult] = useState("");
+  const [cash, setCash] = useState("ADD");
+  const [reason, setReason] = useState("");
+  const dispatch = useDispatch();
+  // const [data, setData] = useState({});
+
+
   const clickHandler =(e)=>{
     if(e.target.name==='saveCash' || e.target.name==='back') {
+      if(e.target.name==='saveCash') {
+        // setData({
+        //   result:result,
+        //   cash: cash,
+        //   reason: reason
+        // })
+        dispatch(registerActions.calculate({
+          cash:result,
+          act:cash,
+          reason:reason,
+        }));
+
+
+        
+      }
       setResult('');
+      // to see data comment props.close() first :)
+      // console.log(data);
       props.onClose();
+    }else{
+      setResult(result.concat(e.target.name));
     }
-    setResult(result.concat(e.target.name));
   }
   const clear =()=>{
     setResult("");
@@ -22,6 +46,7 @@ export default function CashManage(props) {
   const backspace = ()=>{
     setResult(result.slice(0,result.length-1))
   }
+  
   return (
     <Modal onClose={props.onClose}>
       <div className={`${styles.flexCol} ${styles.container}`}>
@@ -42,12 +67,14 @@ export default function CashManage(props) {
           <div className={`${styles.flexRow} ${styles.r2Name}`}>
             <div className={`${styles.flexCol} ${styles.errors}`}>
             <h6>Add or Remove Cash</h6>
-            <select name="addOrRemove" id="dropDown" className={styles.select}>
-              <option value="add" className={styles.select}>
-                <span className={styles.span}>+</span> Add
+            <select name="addOrRemove" value={cash} id="dropDown" onChange= {
+              (event) => {
+                setCash(event.target.value);
+              }
+            } className={styles.select}>
+              <option value="ADD" className={styles.select}>+ Add
               </option>
-              <option value="remove" className={styles.select}>
-                <span className={styles.span}>-</span> Remove
+              <option value="REMOVE" className={styles.select}>- Remove
               </option>
             </select>
             </div>
@@ -63,8 +90,9 @@ export default function CashManage(props) {
             <div className={`${styles.flexCol} ${styles.errors}`}>
             <h6>Reason</h6>
               <Input
+                value={reason}
                 onChange={(event) => {
-                //   setFName(event.target.value);
+                  setReason(event.target.value);
                 }}
               />
             </div>
@@ -90,8 +118,6 @@ export default function CashManage(props) {
             <button name="00" onClick={clickHandler} className={styles.btn}>00</button>
             <button name="back"  onClick={clickHandler} className={`${styles.result} ${styles.highlight}`}>Back</button>
           </div>
-
-          {/* <button className ={styles.btn} onClick={props.showNewCustomerProfile}>Create new Customer profile</button> */}
       </div>
     </Modal>
   )

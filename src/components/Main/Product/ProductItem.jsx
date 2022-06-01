@@ -2,9 +2,10 @@ import React,{useState} from "react";
 import classes from "./ProductItem.module.css";
 import Item from "./Item";
 import ProductData from "./ProductData";
+import { useSelector } from "react-redux";
 
 const ProductItem = (props) => {
-  const productsToBeShown = ProductData;
+  const productsToBeShown = useSelector((state)=>state.product.products);
 
   const itemsToBeDisplayed = (details) => {
     props.onClick2(details);

@@ -9,12 +9,8 @@ export default function Cart() {
     <div className={styles.cart}>
       {items.map((item) => (
         <CartItem
-          title={item.title}
-          price={item.price}
-          total={item.totalPrice}
-          src={item.src}
+          item={item}
           key={item.id}
-          quantity={item.totalQuantity}
         />
       ))}
     </div>
